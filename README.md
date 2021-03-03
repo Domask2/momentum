@@ -1,4 +1,4 @@
-# domask2-JS2020Q3
+# momentum
 
 ![momentum](https://user-images.githubusercontent.com/25439780/98336101-164f2b80-2028-11eb-9fd0-698cd8752c73.jpg)
 
