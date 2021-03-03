@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Momentum</title>
+</head>
+<body>
+    <div class="lazy-load">
+        <span>Загрузка</span>
+    </div>
+    <div class="wrapper">
+        <div class="time">
+            <time id="time">12:17:04</time>
+            <time id="calendar">Понедельние 28 сентября</time>
+            <h1>
+                <span id="greeting">Good Afternoon</span>
+                <span id="name" contenteditable="true" style="display: inline-block"></span>
+            </h1>
+    
+            <h2>Ваша цель на сегодня?</h2>
+            <h2 id="focus" contenteditable="true"></h2>
+    
+            <button class="btn"></button>
+        </div>
+        
+        <div class="app-weather">
+            <div class="app-weather-wrapper">
+                <div class="data">
+                    <i class="day-icon-app" ></i><span class="day-temp-app temp-over-app"> 29°C</span>
+                 </div> 
+                <div class="humidity"> <span class="title">ВЛАЖНОСТЬ</span><span class="value">34 %</span></div>
+                <div class="wind"> <span class="title">ВЕТЕР</span><span class="value">0 km/h</span></div>
+                <div class="city location-container city-app"contenteditable="true">Санкт-Петербург</div> 
+             
+            </div>
+        </div>
+        
+        <figure class="quote">
+            <button class="btn_quote">сменить цитату</button>
+            <blockquote>
+                
+            </blockquote>
+        </figure>
+    </div>
+    <script type='module'src="script.js"></script>
+</body>
+</html>

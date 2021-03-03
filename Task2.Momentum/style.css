@@ -1,0 +1,513 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.wrapper {
+    overflow: hidden;
+    opacity: 0;
+    background-color: rgba(0,0,0,0.4);
+} 
+html {
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Roboto Mono', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    color: black;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 750ms ease;
+    overflow: hidden;
+  
+}
+
+.hide {
+    display: none !important;
+}
+
+.lazy-load {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    transition: 750ms ease-in-out;
+    background-color: #b3b3b3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    opacity: 1;
+}
+
+
+#time {
+    font-size: 6rem;
+    color: #fff;
+    display: flex;
+}
+
+#time div {
+    margin-left: 50px;
+    width: 120px;
+}
+
+#calendar {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #f5f5f5;
+    letter-spacing: 1px;
+    
+}
+
+h1 {
+    margin-bottom: 3rem;
+    color: #fff;
+    z-index: 4;
+    
+}
+
+h2 {
+    margin-bottom: 0.7rem;
+    letter-spacing: 1px;
+    color: #fff;
+    z-index: 5;
+}
+
+.btn {
+    width: 60px;
+    height: 60px;
+    border: 0;
+    background: url("http://droit.ump.ma/uploads/images/1/icone%20avis/5c0f809567e28.png");
+    background-size: cover;
+    filter: grayscale(1);
+    margin: 10px;
+    z-index: 2;
+}
+
+.btn:active,
+.btn:focus {
+  outline: 0;
+}
+.btn:active{
+  transform: scale(1.02)
+}
+
+.clear {
+    clear: both;
+}
+
+.container {
+    border-radius: 25px;
+    box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+    color: #313131;
+    height: 315px;
+    opacity: 0;
+    position: absolute;
+    transition: all 1.5s ease;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+    /* transform: translate(567px, 10px); */
+    right: -500px;
+}
+
+.time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: default;
+}
+
+.weather-side {
+    position: relative;
+    height: 100%;
+    border-radius: 25px;
+    background-image: url("https://images.unsplash.com/photo-1559963110-71b394e7494d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80");
+    width: 300px;
+    box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
+    transition: -webkit-transform 300ms ease;
+    transition: transform 300ms ease;
+    transition: transform 300ms ease, -webkit-transform 300ms ease;
+    transform: translateZ(0) scale(1.02) perspective(1000px);
+    float: left;
+}
+
+.weather-side:hover {
+    transform: scale(1.1) perspective(1500px) rotateY(10deg);
+}
+
+.weather-gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: var(--gradient);
+    border-radius: 25px;
+    opacity: 0.8;
+}
+
+.week-list img {
+    width: 65px;
+    height: 65вфpx;
+}
+.date-container {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+.date-dayname {
+    margin: 0;
+}
+
+.date-day {
+	margin-top: 10px;
+    display: block;
+}
+
+.location {
+    display: inline-block;
+	margin-top: 10px;
+	margin-left: -5px;
+}
+
+.location-icon {
+    display: inline-block;
+    height: 0.8em;
+    width: auto;
+    margin-right: 5px;
+}
+
+.weather-container {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+}
+
+.weather-icon.feather {
+    height: 60px;
+    width: auto;
+}
+
+.weather-temp {
+    margin: 0;
+    font-weight: 700;
+    font-size: 4em;
+}
+
+.weather-desc {
+    margin: 0;
+}
+
+.info-side {
+    position: relative;
+    float: left;
+    height: 100%;
+    padding: 0px 0px;
+}
+
+.today-info {
+    padding: 15px;
+    margin: 0px 15px 11px 15px;
+	box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.today-info>div:not(:last-child) {
+    margin: 0 0 10px 0;
+}
+
+.today-info>div .title {
+    float: left;
+    font-weight: 700;
+}
+
+.today-info>div .value {
+    float: right;
+}
+
+.week-container	{
+	margin-bottom: 20px;
+}
+
+.week-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0px 15px;
+    box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.week-list>li {
+    float: left;
+    /* padding: 10px; */
+    cursor: pointer;
+    transition: 200ms ease;
+	border-radius: 10px;
+}
+
+.week-list>li .day-name {
+    display: block;
+    margin: 0px 0 0 0;
+    text-align: center;
+}
+
+.week-list>li .day-icon {
+    display: block;
+    height: 30px;
+    width: auto;
+    margin: 0 auto;
+}
+
+.week-list>li .day-temp {
+    display: block;
+    text-align: center;
+    margin: 10px 0 0 0;
+    font-weight: 700;
+}
+
+.location-container {
+    padding: 25px 35px;
+}
+
+.city {  
+    width: 250px;
+    padding: 8px 0;
+    /* margin: 5px auto; */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.quote {
+    margin: 0;
+    padding: 1em;
+    border-radius: 1em;
+    color: #fff;
+    bottom: 15px;
+    width: 800px;
+    height: 170px;
+}
+
+blockquote {
+    transition: all 2s;
+    height: 20px;
+    padding: 30px;
+    height: 50px;
+}
+
+.quote figcaption,
+.quote blockquote {
+    font-size: 18px;
+}
+
+.quote figcaption {
+    text-align: right;
+}
+
+.btn_quote {
+    padding: 10px;
+    color: #fff;
+    border: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+}
+
+.btn {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background-image: url("https://www.pngarts.com/files/7/Update-Button-PNG-Image.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: grayscale(.8);
+    margin: 10px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    transition: all 200ms ease-in;
+}
+
+.btn:hover {
+    filter: grayscale(.1);
+}
+
+.btn:active,
+.btn:focus {
+    outline: 0;
+}
+
+.btn:active{
+    transform: scale(1.02)
+}
+
+.app-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:#fff;
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.app-weather-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.app-weather img {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: -15px;
+    right: 67px;
+}
+
+.data {
+    margin-right: 70px;
+    margin-bottom: 2px;
+    display: float;
+    font-size: 40px;
+}
+.humidity {
+    font-size: 20px;
+}
+
+.humidity .title {
+    margin-right: 10px;
+}
+
+.wind {
+    font-size: 20px;
+}
+
+.wind .title {
+    margin-right: 10px;
+}
+
+@media all and (max-width: 1000px) {
+    #time {
+        font-size: 3rem;
+        margin-left: 43px;
+    }
+    #time div {
+        margin-left: -25px;
+        width: 120px;
+        text-align: center;
+    }
+    blockquote {
+        font-size: 16px;
+    }
+
+    .app-weather {
+        right: -37px;
+        margin-right: 51px;
+    }
+
+    .data {
+        font-size: 30px;
+        margin-right: 59px;
+    }
+
+    .app-weather img {
+        width: 70px;
+        height: 70px;
+        right: 44px;
+ 
+    }
+    .city {
+        width: 180px;
+    }
+}
+
+@media all and (max-width: 767px) {
+    html {
+        overflow: hidden;
+    }
+    body {
+        width: 320px;
+        margin: 0 auto;
+    }
+    #time {
+        font-size: 3rem;
+        margin-left: 43px;
+    }
+    #time div {
+        margin-left: -25px;
+        width: 120px;
+        text-align: center;
+    }
+    blockquote {
+        font-size: 16px;
+    }
+
+    .app-weather {
+        right: -37px;
+        margin-right: 51px;
+    }
+
+    .data {
+        font-size: 30px;
+    }
+
+    .app-weather img {
+        width: 70px;
+        height: 70px;
+ 
+    }
+    .city {
+        width: 210px;
+    }
+    #calendar, h2 {
+        font-size: 1.2rem;
+    }
+    #greeting, #focus {
+        font-size: 1rem;
+    }
+    #name {
+        font-size: 1rem;
+        width: 125px;
+    }
+    #focus {
+        width: 250px;
+    }
+    .quote {
+        width: 320px;
+        height: 200px;
+    }
+    .quote blockquote {
+        font-size: 14px;
+    }
+
+    blockquote {
+        height: 50px;
+    }
+
+    .humidity {
+        font-size: 16px;
+    }
+
+    .wind {
+        font-size: 16px;
+    }
+    
+
+}
